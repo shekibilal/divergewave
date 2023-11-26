@@ -1,0 +1,5 @@
+.card {
+    background-color: white;
+    padding: var(--mantine-spacing-xs);
+    border-radius: var(--mantine-radius-md);
+}

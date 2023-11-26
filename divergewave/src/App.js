@@ -1,66 +1,44 @@
-// App.js
-import React, { useState } from 'react';
-import VideoUploader from './VideoUploader';
-import Sidebar from './Sidebar';
-import VideoPlayer from './VideoPlayer';
-import logo from './logo.png';
-import '@mantine/core/styles.css';
-import { Flex } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks'
+import { AppShell, MantineProvider } from '@mantine/core'
+import '@mantine/core/styles.css'
+import { fetchTheme } from './theme'
+import Sidebar from './ui/Sidebar'
+import classes from "./modules/portal.module.css"
+import Header from './ui/Header'
 
-const App = () => {
-  const [uploadedVideos, setUploadedVideos] = useState([]);
-  const [selectedVideo, setSelectedVideo] = useState(null);
-
-  const handleVideoUpload = (video) => {
-    setUploadedVideos([...uploadedVideos, video]);
-  };
-
-  const handleVideoSelect = (video) => {
-    setSelectedVideo(video);
-  };
+export default function App() {
+  const theme = fetchTheme()
+  const [opened, { toggle }] = useDisclosure()
 
   return (
-    <Flex>
-      <p>Hello World</p>
-      <p>Helo world 2</p>
-    </Flex>
-    // <div>
-    //   <header style={headerStyle}>
-    //   <img src={logo} alt="Logo" style={logoStyle} />
-    //     <div style={buttonContainerStyle}>
-    //       <button style={buttonStyle}>Button 1</button>
-    //       <button style={buttonStyle}>Button 2</button>
-    //     </div>
-    //   </header>
-    //   <VideoUploader onUpload={handleVideoUpload} />
-    //   <div style={{ display: 'flex' }}>
-    //     <Sidebar uploadedVideos={uploadedVideos} onSelect={handleVideoSelect} />
-    //     <VideoPlayer selectedVideo={selectedVideo} />
-    //   </div>
-    // </div>
-  );
-};
-
-const headerStyle = {
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  padding: '10px',
-  background: '#333',
-  color: 'white',
-};
-
-const logoStyle = {
-  width: '203px', // Adjust the width as needed
-  
-};
-
-const buttonContainerStyle = {
-  display: 'flex',
-};
-
-const buttonStyle = {
-  marginLeft: '10px',
-};
-
-export default App;
+    <MantineProvider theme={theme}>
+      <AppShell
+        header={{
+          height: { base: 60, md: 70, lg: 100 },
+          width: { base: "100%" }
+        }}
+        navbar={{
+          width: { base: 200, md: 300, lg: 300 },
+          height: { base: "100%" },
+          breakpoint: 'sm',
+          collapsed: { mobile: !opened },
+        }}
+        padding="md"
+      >
+        <AppShell.Header>
+          {/* <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" /> */}
+          <Header />
+        </AppShell.Header>
+        <AppShell.Navbar p="md" className={classes.sidebar}>
+          <Sidebar />
+        </AppShell.Navbar>
+        <AppShell.Main>
+          Main Area
+        </AppShell.Main>
+        <AppShell.Aside p="md" className={classes.sidebar}>
+          Side Area (subtitles will be rendered)
+        </AppShell.Aside>
+      </AppShell>
+    </MantineProvider>
+  )
+}
