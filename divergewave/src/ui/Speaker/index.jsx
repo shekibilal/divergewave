@@ -5,15 +5,15 @@ export default function (Speaker) {
   return (
     <Group justify="center">
       <Button variant="default">
-        Gallery
+      Original
       </Button>
 
-      <Button>Download</Button>
+      <Button>English</Button>
 
       <Button
         variant="light"
               >
-        Visit gallery
+        Arabic
       </Button>
     </Group>
   );
