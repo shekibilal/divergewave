@@ -1,12 +1,15 @@
 import { useDisclosure } from '@mantine/hooks'
-import { AppShell, MantineProvider } from '@mantine/core'
+import { AppShell, MantineProvider, Stack } from '@mantine/core'
 import '@mantine/core/styles.css'
 import { fetchTheme } from './theme'
 import Sidebar from './ui/Sidebar'
 import classes from "./modules/portal.module.css"
 import Header from './ui/Header'
 import Accordion from './ui/Accordion'
+import Accordion_Sum from './ui/Accordion_Sum'
+import Accordion_Info from './ui/Accordion_Info'
 import VideoPlayer from './ui/VideoPlayer'
+import Speaker from './ui/Speaker'
 
 export default function App() {
   const theme = fetchTheme()
@@ -35,17 +38,23 @@ export default function App() {
           <Sidebar />
         </AppShell.Navbar>
         <AppShell.Main>
-          
+        <Stack gap={"xl"}>
           <Accordion p="md" className={classes.accordionArea} w={100}>
-          Accordion={{
-            height: { base: 60, md: 70, lg: 100 },
-            width: { base: "70%" }
-          }}
           </Accordion>
+          <Stack gap={"md"}>
           <VideoPlayer />
-          Main Area
+          </Stack>
+          <Accordion_Sum p="md" className={classes.accordionArea} w={100}>
+          </Accordion_Sum>
+          
+          <Stack gap={"md"}>
+          <Accordion_Info p="md" className={classes.accordionArea} w={100}>
+          </Accordion_Info>
+          </Stack>
+          </Stack>
         </AppShell.Main>
         <AppShell.Aside p="md" className={classes.sidebar}>
+          <Speaker />
           Side Area (subtitles will be rendered)
         </AppShell.Aside>
       </AppShell>

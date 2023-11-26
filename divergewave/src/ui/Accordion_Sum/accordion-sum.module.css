@@ -1,11 +1,17 @@
-.accordionArea {
+.accordionSumArea {
     border: 1px solid;
   border-color: #f2870c;
   border-radius: 15px;
   height: auto;
   position: relative;
-  width: 76%;
+  width: 80%;
+  background-color: #fff6ec;
+  
 }
 .selectOption {
     width: max-content;
+}
+
+.desc123 {
+  font-weight: bold !important;
 }
