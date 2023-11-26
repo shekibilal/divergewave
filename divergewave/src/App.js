@@ -35,10 +35,7 @@ export default function App() {
           <Sidebar />
         </AppShell.Navbar>
         <AppShell.Main>
-          {/* <Accordion.Item>
-
-
-          </Accordion.Item> */}
+          
           <Accordion p="md" className={classes.accordionArea} w={100}>
           Accordion={{
             height: { base: 60, md: 70, lg: 100 },

@@ -1,5 +1,6 @@
 import { Accordion, Stack } from '@mantine/core';
 import { Select } from '@mantine/core';
+import classes from "./accordion.module.css"
 
 const groceries = [
     {
@@ -23,7 +24,7 @@ export default function Demo() {
 
   return (
     <Stack gap={"xl"}>
-    <Accordion defaultValue="Apples">
+    <Accordion defaultValue="Apples" className={classes.accordionArea}>
       {items}
     
     <Select
