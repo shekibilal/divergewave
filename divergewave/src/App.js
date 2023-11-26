@@ -37,7 +37,7 @@ export default function App() {
         <AppShell.Navbar p="md" className={classes.sidebar}>
           <Sidebar />
         </AppShell.Navbar>
-        <AppShell.Main>
+        <AppShell.Main className={classes.mainArea}>
         <Stack gap={"xl"}>
           <Accordion p="md" className={classes.accordionArea} w={100}>
           </Accordion>

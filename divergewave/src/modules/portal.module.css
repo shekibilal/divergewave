@@ -5,3 +5,7 @@
 .subtitlesArea {
     background-color: var(--mantine-color-gray-1);
 }
+
+.mainArea {
+    flex-wrap: wrap;
+}
