@@ -5,6 +5,8 @@ import { fetchTheme } from './theme'
 import Sidebar from './ui/Sidebar'
 import classes from "./modules/portal.module.css"
 import Header from './ui/Header'
+import Accordion from './ui/Accordion'
+import VideoPlayer from './ui/VideoPlayer'
 
 export default function App() {
   const theme = fetchTheme()
@@ -33,6 +35,17 @@ export default function App() {
           <Sidebar />
         </AppShell.Navbar>
         <AppShell.Main>
+          {/* <Accordion.Item>
+
+
+          </Accordion.Item> */}
+          <Accordion p="md" className={classes.accordionArea} w={100}>
+          Accordion={{
+            height: { base: 60, md: 70, lg: 100 },
+            width: { base: "70%" }
+          }}
+          </Accordion>
+          <VideoPlayer />
           Main Area
         </AppShell.Main>
         <AppShell.Aside p="md" className={classes.sidebar}>
